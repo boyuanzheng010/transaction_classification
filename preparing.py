@@ -164,12 +164,26 @@ df_amt.to_excel('Amount_digging.xlsx',index=False)
 # print( "Acc:", n/len(y_pred))
 
 
-
-
-
-
-
-
+# Check how max_depth affects overfit on RF
+depths= list(np.arange(1,30,1))
+acc_train = [0 for i in range(len(depths))]
+acc_test = [0 for i in range(len(depths))]
+for idx_d, d in enumerate(depths):
+    clf1 = RandomForestClassifier(max_depth=d, random_state=0)
+    clf1.fit(X_train, y_train)
+    y_pred = clf1.predict(X_test)
+    y_pred_train = clf1.predict(X_train)
+    n_train, n_test=0,0
+    for idx,yt in enumerate(y_test):
+        if yt==y_pred[idx]:
+            n_test+=1
+    acc_test[idx_d] = n_test/len(y_test)
+    for idx,yt in enumerate(y_train):
+        if yt ==y_pred_train[idx]:
+            n_train+=1
+    acc_train[idx_d] = n_train/len(y_train)
+plt.plot(depths,acc_train,'s-',color = 'r',label="Train")#s-:方形
+plt.plot(depths,acc_test,'o-',color = 'g',label="Test")#o-:圆形
 
 
 
