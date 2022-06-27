@@ -242,8 +242,8 @@ s_cates=['Communication Services', 'Property and Business Services', 'Travel',
          'Finance']
 rename_dict = dict(zip(list(df_similarity.columns), ["similarity_"+s for s in s_cates]))
 df_similarity.rename(rename_dict, inplace=True, axis='columns')
-for col in df_similarity:
-    df_similarity[col] = df_similarity[col].apply(lambda x: pow(x,20))
+# for col in df_similarity:
+#     df_similarity[col] = df_similarity[col].apply(lambda x: pow(x,20))
 # most_sim_cat = [-1 for i in range(len(df))]
 # for idx in df_similarity.index:
 #     temp = list(df_similarity.iloc[idx,:])
