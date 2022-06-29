@@ -253,8 +253,8 @@ results["error_indexes"]["random_forest"] = errorIdx_RF
 results["error_indexes"]["xgboost"] = errorIdx_XGB
 
 results["features_importance"]={}
-results["error_indexes"]["random_forest"] = features_importance_RF
-results["error_indexes"]["xgboost"] = features_importance_XGB
+results["features_importance"]["random_forest"] = features_importance_RF
+results["features_importance"]["xgboost"] = features_importance_XGB
 
 
 filename = 'multi_model_results.pkl'
