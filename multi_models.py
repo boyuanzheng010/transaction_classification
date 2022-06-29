@@ -258,7 +258,7 @@ results["error_indexes"]["xgboost"] = features_importance_XGB
 
 
 filename = 'multi_model_results.pkl'
-pickle.dump(filename, open(filename, 'wb'))
+pickle.dump(results, open(filename, 'wb'))
 
 
 
